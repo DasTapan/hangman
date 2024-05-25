@@ -29,17 +29,16 @@ class Hangman
         puts "=================="
         puts 'enter a letter :'
         
-        letter = gets.chomp
+        # require 'pry-byebug';binding.pry
+        
+        # letter = gets.chomp
+        letter = take_input()
 
-        unless letter.match?(/\A[a-zA-Z]\z/)
-          raise StandardError
-        end
       rescue StandardError
-        puts 'please enter a valid letter only'
+        puts 'please enter a valid single letter only'
         retry
       else
         if (@word_splitted.include?(letter))
-          # require 'pry-byebug';binding.pry
           index = @word_splitted.index(letter)
           @word_splitted[index] = nil
           @guess[index] = letter
@@ -81,11 +80,12 @@ class Hangman
 
   def take_input
     letter = gets.chomp
-    unless letter.match?(/\A[a-zA-Z]\z/)
-      puts "enter a valid letter only"
-      StandardError
+    if letter.length > 1
+      raise StandardError
+    elsif !letter.match?(/\A[a-zA-Z]\z/)
+      raise StandardError
     else
-      return letter.downcase!
+      return letter.downcase
     end
   end
 end

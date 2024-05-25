@@ -11,10 +11,7 @@ class Hangman
   end
 
   def start
-    puts "++++++++"
-    generate_fillers(@word_splitted)
-    puts @word
-    puts "--------"
+    # require 'pry-byebug';binding.pry
 
     # je parjanta chance na sari jaichi kimba jiti na jaichi se parjanta chaliba
 
@@ -26,11 +23,9 @@ class Hangman
         generate_fillers(@guess)
         
         p "incorrect guess :[#{@wrong_guess.join(", ")}]"
-        puts "=================="
+        puts "<><><><><><><><><><><>"
         puts 'enter a letter :'
-        
-        # require 'pry-byebug';binding.pry
-        
+                
         # letter = gets.chomp
         letter = take_input()
 
@@ -44,7 +39,12 @@ class Hangman
           @guess[index] = letter
         else
           @chance -= 1
-          puts "OOPs! Cheems is gone forever" if(@chance == 0)
+          if(@chance == 0)
+            puts ""
+            puts "OOPs! Cheems is gone forever"
+            puts ""
+            puts "The word wasa '#{@word.upcase}'"
+          end
           @wrong_guess << letter
         end
       end

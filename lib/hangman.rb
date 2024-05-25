@@ -60,7 +60,10 @@ class Hangman
 
   def check_equality
     if (@word.split("").eql?(@guess))
+      puts ""
       puts "Yay!! You have saved cheems!"
+      puts ""
+      puts "The word wasa '#{@word.upcase}'"
       true
     else
       false

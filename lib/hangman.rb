@@ -1,8 +1,11 @@
+require_relative './dictionary'
+
 class Hangman
   def initialize(file)
     @file = file
     @chance = 7
     @word = select_random_word(@file)
+    @hint = Dictionary::get_hint(@word)
     @word_splitted = @word.split('')
     @guess = Array.new(@word.length)
     @wrong_guess = []
@@ -13,11 +16,17 @@ class Hangman
   def start
     # require 'pry-byebug';binding.pry
 
+    puts ""
+    puts "You need to guess the word correctly in 7 attempts"
+    puts ""
+    puts "This is only way to save Cheems"
+    puts ""
     # je parjanta chance na sari jaichi kimba jiti na jaichi se parjanta chaliba
 
     while (!check_equality && @chance > 0)
     # while @chance > 0
       begin
+        puts "Hint: '#{@hint}'"
         puts "chances remaining : #{@chance}"
 
         generate_fillers(@guess)

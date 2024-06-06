@@ -1,16 +1,27 @@
 require_relative './dictionary'
+require_relative './serialize'
 
 class Hangman
-  def initialize(file)
-    @file = file
-    @chance = 7
-    @word = select_random_word(@file)
-    @hint = Dictionary::get_hint(@word)
-    @word_splitted = @word.split('')
-    @guess = Array.new(@word.length)
-    @wrong_guess = []
-    @input = []
-    @fillers = ''
+  def initialize(file, saved_session = {})
+    if(file.nil?)
+      @chance = saved_session[:chance]
+      @word = saved_session[:word]
+      @hint = saved_session[:hint]
+      @word_splitted = saved_session[:word_splitted]
+      @guess = saved_session[:guess]
+      @wrong_guess = saved_session[:wrong_guess]
+      @fillers = saved_session[:fillers]
+    else
+      @file = file
+      @chance = 7
+      @word = select_random_word(@file)
+      @hint = Dictionary::get_hint(@word)
+      @word_splitted = @word.split('')
+      @guess = Array.new(@word.length)
+      @wrong_guess = []
+      @input = []
+      @fillers = ''  
+    end
   end
 
   def start
@@ -33,10 +44,26 @@ class Hangman
         
         p "incorrect guess :[#{@wrong_guess.join(", ")}]"
         puts "<><><><><><><><><><><>"
-        puts 'enter a letter :'
+        puts "enter a letter or write 'SAVE' to save the game and exit :"
                 
         # letter = gets.chomp
-        letter = take_input()
+        letter = gets.chomp
+        if(letter.downcase == "save")
+          Serialize.to_yaml({
+            :chance => @chance,
+            :word => @word,
+            :hint => @hint,
+            :word_splitted => @word_splitted,
+            :guess => @guess,
+            :wrong_guess => @wrong_guess,
+            :fillers => @fillers
+          }) 
+          break
+        else
+          if letter.length > 1 || !letter.match?(/\A[a-zA-Z]\z/)
+            raise StandardError
+          end  
+        end    
 
       rescue StandardError
         puts 'please enter a valid single letter only'
@@ -88,16 +115,5 @@ class Hangman
         end        
     end
     p fillers.join(" ")
-  end
-
-  def take_input
-    letter = gets.chomp
-    if letter.length > 1
-      raise StandardError
-    elsif !letter.match?(/\A[a-zA-Z]\z/)
-      raise StandardError
-    else
-      return letter.downcase
-    end
   end
 end

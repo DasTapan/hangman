@@ -1,0 +1,27 @@
+---
+:chance: 4
+:word: soldiers
+:hint: A member of an army, of any rank.
+:word_splitted:
+- s
+- o
+-
+- d
+- i
+- e
+- r
+- s
+:guess:
+-
+-
+- l
+-
+-
+-
+-
+-
+:wrong_guess:
+- c
+- m
+- c
+:fillers: ''

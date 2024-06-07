@@ -4,8 +4,7 @@ Hangman CLI
 
 ### Prerequisites
 
-- Ruby (version X.X.X)
-- Any other prerequisites or dependencies
+- Ruby (version 3.2.2)
 
 ### Run on Replit
 
@@ -36,3 +35,10 @@ bundle install
 ```bash
 ruby lib/game.rb
 ```
+
+### Instruction
+
+- Start a new game or enter the saved game file name to resume an existing game
+- You get 7 chances to guess the word
+- A Hint about word is given
+- You can save a game at any stage by entering 'SAVE'

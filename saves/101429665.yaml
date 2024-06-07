@@ -1,0 +1,22 @@
+---
+:chance: 5
+:word: charge
+:hint: The amount of money levied for a service.
+:word_splitted:
+-
+-
+-
+-
+-
+- e
+:guess:
+- c
+- h
+- a
+- r
+- g
+-
+:wrong_guess:
+- s
+- t
+:fillers: ''

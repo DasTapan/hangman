@@ -1,0 +1,28 @@
+---
+:chance: 5
+:word: catalogue
+:hint: A systematic list of names, books, pictures etc.
+:word_splitted:
+-
+-
+-
+-
+-
+-
+- g
+- u
+- e
+:guess:
+- c
+- a
+- t
+- a
+- l
+- o
+-
+-
+-
+:wrong_guess:
+- i
+- l
+:fillers: ''

@@ -1,0 +1,28 @@
+---
+:chance: 3
+:word: compound
+:hint: An enclosure within which workers, prisoners, or soldiers are confined
+:word_splitted:
+- c
+-
+- m
+-
+- o
+- u
+- "n"
+- d
+:guess:
+-
+- o
+-
+- p
+-
+-
+-
+-
+:wrong_guess:
+- b
+- k
+- w
+- a
+:fillers: ''

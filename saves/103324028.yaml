@@ -1,0 +1,26 @@
+---
+:chance: 4
+:word: shorter
+:hint: Having a small distance from one end or edge to another, either horizontally
+  or vertically.
+:word_splitted:
+- s
+- h
+-
+- r
+- t
+- e
+- r
+:guess:
+-
+-
+- o
+-
+-
+-
+-
+:wrong_guess:
+- d
+- c
+- k
+:fillers: ''

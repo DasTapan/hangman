@@ -1,0 +1,28 @@
+---
+:chance: 5
+:word: integrity
+:hint: Steadfast adherence to a strict moral or ethical code.
+:word_splitted:
+- i
+- "n"
+- t
+-
+- g
+- r
+- i
+- t
+- "y"
+:guess:
+-
+-
+-
+- e
+-
+-
+-
+-
+-
+:wrong_guess:
+- c
+- p
+:fillers: ''

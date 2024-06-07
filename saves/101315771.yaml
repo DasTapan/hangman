@@ -1,0 +1,22 @@
+---
+:chance: 3
+:word: grove
+:hint: A small forest.
+:word_splitted:
+-
+- r
+- o
+- v
+- e
+:guess:
+- g
+-
+-
+-
+-
+:wrong_guess:
+- j
+- i
+- b
+- a
+:fillers: ''

@@ -38,17 +38,20 @@ class Hangman
     # while @chance > 0
       begin
         puts "Hint: '#{@hint}'"
+        puts ""
         puts "chances remaining : #{@chance}"
-
+        puts ""
         generate_fillers(@guess)
         
         p "incorrect guess :[#{@wrong_guess.join(", ")}]"
-        puts "<><><><><><><><><><><>"
+        puts ""
         puts "enter a letter or write 'SAVE' to save the game and exit :"
                 
         # letter = gets.chomp
         letter = gets.chomp
         if(letter.downcase == "save")
+          puts "saving the game... & exiting.."
+          sleep(2)
           Serialize.to_yaml({
             :chance => @chance,
             :word => @word,
